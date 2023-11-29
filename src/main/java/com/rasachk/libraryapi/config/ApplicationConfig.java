@@ -20,12 +20,12 @@ public class ApplicationConfig {
 
 
     @Bean
-    public UserDetailsService userDetailsService(){
-        return username -> memberRepository.findMemberByUsernameAndAvailability(username,true);
+    public UserDetailsService userDetailsService() {
+        return username -> memberRepository.findMemberByUsernameAndAvailability(username, true);
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -41,7 +41,6 @@ public class ApplicationConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 
 }

@@ -6,8 +6,8 @@ import com.rasachk.libraryapi.config.JwtService;
 import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
 import com.rasachk.libraryapi.member.dao.MemberRepository;
 import com.rasachk.libraryapi.member.dto.MemberDto;
-import com.rasachk.libraryapi.member.entity.Role;
 import com.rasachk.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.member.entity.Role;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +65,7 @@ public class MemberService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request){
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),
@@ -104,7 +104,6 @@ public class MemberService {
         }
         return member;
     }
-
 
 
     public MemberDto update(MemberDto memberDto) {

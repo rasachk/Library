@@ -19,38 +19,39 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    BookController(BookService bookService){this.bookService = bookService;}
+    BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @GetMapping("/books")
-    public ResponseEntity<List<BookDto>> getAllBooks(){
-        return new ResponseEntity<List<BookDto>>(bookService.findAllBooks(),HttpStatus.OK) ;
+    public ResponseEntity<List<BookDto>> getAllBooks() {
+        return new ResponseEntity<List<BookDto>>(bookService.findAllBooks(), HttpStatus.OK);
     }
 
     @GetMapping("books/{title}")
-    public ResponseEntity<BookDto> findOneBook(@PathVariable String title){
-        return new ResponseEntity<BookDto>(bookService.convertBookToDto(bookService.findBook(title)),HttpStatus.OK);
+    public ResponseEntity<BookDto> findOneBook(@PathVariable String title) {
+        return new ResponseEntity<BookDto>(bookService.convertBookToDto(bookService.findBook(title)), HttpStatus.OK);
     }
 
     @GetMapping("books/not-borrowed")
-    public ResponseEntity<List<BookDto>> findNotBorrowedBooks(){
-        return new ResponseEntity<List<BookDto>>(bookService.findNotBorrowedBooks(),HttpStatus.OK);
+    public ResponseEntity<List<BookDto>> findNotBorrowedBooks() {
+        return new ResponseEntity<List<BookDto>>(bookService.findNotBorrowedBooks(), HttpStatus.OK);
     }
 
     @PostMapping("/books")
-    public ResponseEntity<Object> createBook(@RequestBody BookDto bookDto)
-    {
+    public ResponseEntity<Object> createBook(@RequestBody BookDto bookDto) {
         BookDto savedBookDto = bookService.saveBook(bookDto);
-        URI location= ServletUriComponentsBuilder.fromCurrentRequest().path("/{title}").buildAndExpand(savedBookDto.getTitle()).toUri();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{title}").buildAndExpand(savedBookDto.getTitle()).toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PostMapping("books/update")
-    public ResponseEntity<BookDto> updateBook(@RequestBody BookDto bookDto){
+    public ResponseEntity<BookDto> updateBook(@RequestBody BookDto bookDto) {
         return new ResponseEntity<BookDto>(bookService.updateBook(bookDto), HttpStatus.OK);
     }
 
     @DeleteMapping("books/{title}")
-    public ResponseEntity<String> deleteBook(@PathVariable String title){
+    public ResponseEntity<String> deleteBook(@PathVariable String title) {
         bookService.deleteBook(title);
         return new ResponseEntity<String>(HttpStatus.OK);
     }

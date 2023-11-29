@@ -203,12 +203,12 @@ public class IssueService {
         return popularBooks;
     }
 
-    public ArrayList<DateCount> findLibraryInformation(){
+    public ArrayList<DateCount> findLibraryInformation() {
         //TODO MAKE IT MORE CLEAR
         ArrayList<DateCount> arrayList = new ArrayList<>();
-        arrayList.add(new DateCount(LocalDate.now(),bookService.findBooksCount()));
-        arrayList.add(new DateCount(LocalDate.now(),memberService.findAllMembers().size()));
-        arrayList.add(new DateCount(LocalDate.now(),findAllIssues().size()));
+        arrayList.add(new DateCount(LocalDate.now(), bookService.findBooksCount()));
+        arrayList.add(new DateCount(LocalDate.now(), memberService.findAllMembers().size()));
+        arrayList.add(new DateCount(LocalDate.now(), findAllIssues().size()));
         return arrayList;
     }
 

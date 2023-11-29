@@ -86,6 +86,6 @@ public class Issue {
 
     @Override
     public String toString() {
-        return String.format("Issue [id=%s, startDate=%s, returnDate=%s, period=%s,member=%s book=%s]", id, startDate, returnDate,period,member,book);
+        return String.format("Issue [id=%s, startDate=%s, returnDate=%s, period=%s,member=%s book=%s]", id, startDate, returnDate, period, member, book);
     }
 }

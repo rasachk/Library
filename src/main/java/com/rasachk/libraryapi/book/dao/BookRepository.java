@@ -7,10 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BookRepository extends JpaRepository<Book,Long> {
+public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByAvailability(Boolean availability);
 
     List<Book> findAllByAvailabilityAndBorrowStatus(Boolean availability, Boolean borrowStatus);
-    Book findBookByTitleAndAvailability(String title,Boolean availability);
+
+    Book findBookByTitleAndAvailability(String title, Boolean availability);
 
 }

@@ -1,7 +1,9 @@
 package com.rasachk.libraryapi.member.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -42,7 +44,7 @@ public class Member implements UserDetails {
     }
 
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
@@ -74,6 +76,6 @@ public class Member implements UserDetails {
 
     @Override
     public String toString() {
-        return String.format("Member [id=%s, username=%s, password=%s, name=%s, gender=%s, age=%s, availability=%s]", id, username, password,name,gender,age,availability);
+        return String.format("Member [id=%s, username=%s, password=%s, name=%s, gender=%s, age=%s, availability=%s]", id, username, password, name, gender, age, availability);
     }
 }
