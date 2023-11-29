@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.book.entity;
+package com.rasachk.libraryapi.book.entity;
 
 import jakarta.persistence.*;
 

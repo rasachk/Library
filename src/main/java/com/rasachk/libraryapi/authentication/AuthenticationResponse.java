@@ -1,6 +1,6 @@
-package com.jiring.libraryapi.authentication;
+package com.rasachk.libraryapi.authentication;
 
-import com.jiring.libraryapi.member.entity.Role;
+import com.rasachk.libraryapi.member.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

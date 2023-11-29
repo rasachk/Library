@@ -1,6 +1,6 @@
-package com.jiring.libraryapi.config;
+package com.rasachk.libraryapi.config;
 
-import com.jiring.libraryapi.member.dao.MemberRepository;
+import com.rasachk.libraryapi.member.dao.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

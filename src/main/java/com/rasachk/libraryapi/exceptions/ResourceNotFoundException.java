@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.exceptions;
+package com.rasachk.libraryapi.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

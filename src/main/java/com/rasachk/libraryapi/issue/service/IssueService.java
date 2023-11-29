@@ -1,14 +1,14 @@
-package com.jiring.libraryapi.issue.service;
+package com.rasachk.libraryapi.issue.service;
 
-import com.jiring.libraryapi.book.dto.BookDto;
-import com.jiring.libraryapi.book.entity.Book;
-import com.jiring.libraryapi.book.service.BookService;
-import com.jiring.libraryapi.exceptions.ResourceNotFoundException;
-import com.jiring.libraryapi.issue.dao.IssueRepository;
-import com.jiring.libraryapi.issue.dto.DateCount;
-import com.jiring.libraryapi.issue.dto.IssueDto;
-import com.jiring.libraryapi.issue.entity.Issue;
-import com.jiring.libraryapi.member.service.MemberService;
+import com.rasachk.libraryapi.book.dto.BookDto;
+import com.rasachk.libraryapi.book.entity.Book;
+import com.rasachk.libraryapi.book.service.BookService;
+import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
+import com.rasachk.libraryapi.issue.dao.IssueRepository;
+import com.rasachk.libraryapi.issue.dto.DateCount;
+import com.rasachk.libraryapi.issue.dto.IssueDto;
+import com.rasachk.libraryapi.issue.entity.Issue;
+import com.rasachk.libraryapi.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

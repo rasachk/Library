@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.book.dto;
+package com.rasachk.libraryapi.book.dto;
 
 
 public class BookDto {

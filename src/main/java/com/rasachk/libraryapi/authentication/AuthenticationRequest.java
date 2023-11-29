@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.authentication;
+package com.rasachk.libraryapi.authentication;
 
 import lombok.Builder;
 import lombok.Data;

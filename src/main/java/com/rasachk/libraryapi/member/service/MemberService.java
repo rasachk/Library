@@ -1,13 +1,13 @@
-package com.jiring.libraryapi.member.service;
+package com.rasachk.libraryapi.member.service;
 
-import com.jiring.libraryapi.authentication.AuthenticationRequest;
-import com.jiring.libraryapi.authentication.AuthenticationResponse;
-import com.jiring.libraryapi.config.JwtService;
-import com.jiring.libraryapi.exceptions.ResourceNotFoundException;
-import com.jiring.libraryapi.member.dao.MemberRepository;
-import com.jiring.libraryapi.member.dto.MemberDto;
-import com.jiring.libraryapi.member.entity.Role;
-import com.jiring.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.authentication.AuthenticationRequest;
+import com.rasachk.libraryapi.authentication.AuthenticationResponse;
+import com.rasachk.libraryapi.config.JwtService;
+import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
+import com.rasachk.libraryapi.member.dao.MemberRepository;
+import com.rasachk.libraryapi.member.dto.MemberDto;
+import com.rasachk.libraryapi.member.entity.Role;
+import com.rasachk.libraryapi.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

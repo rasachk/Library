@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.member.entity;
+package com.rasachk.libraryapi.member.entity;
 
 public enum Role {
         USER,

@@ -1,7 +1,7 @@
-package com.jiring.libraryapi.issue.entity;
+package com.rasachk.libraryapi.issue.entity;
 
-import com.jiring.libraryapi.book.entity.Book;
-import com.jiring.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.book.entity.Book;
+import com.rasachk.libraryapi.member.entity.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

@@ -1,9 +1,9 @@
-package com.jiring.libraryapi.book.service;
+package com.rasachk.libraryapi.book.service;
 
-import com.jiring.libraryapi.book.dao.BookRepository;
-import com.jiring.libraryapi.book.dto.BookDto;
-import com.jiring.libraryapi.book.entity.Book;
-import com.jiring.libraryapi.exceptions.ResourceNotFoundException;
+import com.rasachk.libraryapi.book.dao.BookRepository;
+import com.rasachk.libraryapi.book.dto.BookDto;
+import com.rasachk.libraryapi.book.entity.Book;
+import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

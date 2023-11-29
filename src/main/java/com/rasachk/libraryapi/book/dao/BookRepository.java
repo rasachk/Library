@@ -1,6 +1,6 @@
-package com.jiring.libraryapi.book.dao;
+package com.rasachk.libraryapi.book.dao;
 
-import com.jiring.libraryapi.book.entity.Book;
+import com.rasachk.libraryapi.book.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

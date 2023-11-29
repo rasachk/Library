@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.issue.dto;
+package com.rasachk.libraryapi.issue.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

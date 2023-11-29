@@ -1,4 +1,4 @@
-package com.jiring.libraryapi;
+package com.rasachk.libraryapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

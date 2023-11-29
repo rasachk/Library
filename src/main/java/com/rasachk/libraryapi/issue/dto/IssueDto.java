@@ -1,12 +1,7 @@
-package com.jiring.libraryapi.issue.dto;
+package com.rasachk.libraryapi.issue.dto;
 
-import com.jiring.libraryapi.book.dto.BookDto;
-import com.jiring.libraryapi.book.entity.Book;
-import com.jiring.libraryapi.member.dto.MemberDto;
-import com.jiring.libraryapi.member.entity.Member;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import com.rasachk.libraryapi.book.dto.BookDto;
+import com.rasachk.libraryapi.member.dto.MemberDto;
 
 import java.time.LocalDate;
 

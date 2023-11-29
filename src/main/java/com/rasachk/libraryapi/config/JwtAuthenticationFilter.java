@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.config;
+package com.rasachk.libraryapi.config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

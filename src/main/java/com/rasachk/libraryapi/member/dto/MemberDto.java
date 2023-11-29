@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.member.dto;
+package com.rasachk.libraryapi.member.dto;
 
 public class MemberDto {
     private String username;

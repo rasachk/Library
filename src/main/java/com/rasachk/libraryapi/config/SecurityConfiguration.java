@@ -1,6 +1,5 @@
-package com.jiring.libraryapi.config;
+package com.rasachk.libraryapi.config;
 
-import jakarta.servlet.Filter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;

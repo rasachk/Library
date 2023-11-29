@@ -1,9 +1,9 @@
-package com.jiring.libraryapi.member.controller;
+package com.rasachk.libraryapi.member.controller;
 
-import com.jiring.libraryapi.authentication.AuthenticationRequest;
-import com.jiring.libraryapi.authentication.AuthenticationResponse;
-import com.jiring.libraryapi.member.dto.MemberDto;
-import com.jiring.libraryapi.member.service.MemberService;
+import com.rasachk.libraryapi.authentication.AuthenticationRequest;
+import com.rasachk.libraryapi.authentication.AuthenticationResponse;
+import com.rasachk.libraryapi.member.dto.MemberDto;
+import com.rasachk.libraryapi.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

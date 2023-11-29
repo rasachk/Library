@@ -1,4 +1,4 @@
-package com.jiring.libraryapi.config;
+package com.rasachk.libraryapi.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
