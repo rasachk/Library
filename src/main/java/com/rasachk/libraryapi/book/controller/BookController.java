@@ -2,6 +2,7 @@ package com.rasachk.libraryapi.book.controller;
 
 import com.rasachk.libraryapi.book.dto.BookDto;
 import com.rasachk.libraryapi.book.service.BookService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200/")
+@Api
 public class BookController {
 
     @Autowired

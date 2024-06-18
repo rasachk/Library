@@ -1,6 +1,6 @@
 package com.rasachk.libraryapi.book.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "LIB_BOOKS")

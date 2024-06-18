@@ -1,9 +1,9 @@
 package com.rasachk.libraryapi.member.controller;
 
-import com.rasachk.libraryapi.authentication.AuthenticationRequest;
 import com.rasachk.libraryapi.authentication.AuthenticationResponse;
 import com.rasachk.libraryapi.member.dto.MemberDto;
 import com.rasachk.libraryapi.member.service.MemberService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200/")
+@Api
 public class MemberController {
     @Autowired
     private MemberService memberService;
@@ -28,10 +28,10 @@ public class MemberController {
         return new ResponseEntity<AuthenticationResponse>(memberService.saveMember(memberDto), HttpStatus.OK);
     }
 
-    @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
-        return new ResponseEntity<AuthenticationResponse>(memberService.authenticate(request), HttpStatus.OK);
-    }
+//    @PostMapping("/authenticate")
+//    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+//        return new ResponseEntity<AuthenticationResponse>(memberService.authenticate(request), HttpStatus.OK);
+//    }
 
     @GetMapping("/members/list")
     public ResponseEntity<List<MemberDto>> getAllMembers() {

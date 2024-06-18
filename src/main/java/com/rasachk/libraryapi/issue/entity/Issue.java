@@ -2,8 +2,8 @@ package com.rasachk.libraryapi.issue.entity;
 
 import com.rasachk.libraryapi.book.entity.Book;
 import com.rasachk.libraryapi.member.entity.Member;
-import jakarta.persistence.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity

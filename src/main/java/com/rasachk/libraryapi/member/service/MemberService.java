@@ -1,8 +1,6 @@
 package com.rasachk.libraryapi.member.service;
 
-import com.rasachk.libraryapi.authentication.AuthenticationRequest;
 import com.rasachk.libraryapi.authentication.AuthenticationResponse;
-import com.rasachk.libraryapi.config.JwtService;
 import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
 import com.rasachk.libraryapi.member.dao.MemberRepository;
 import com.rasachk.libraryapi.member.dto.MemberDto;
@@ -11,9 +9,6 @@ import com.rasachk.libraryapi.member.entity.Role;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -29,13 +24,6 @@ public class MemberService {
     private MemberRepository memberRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private final PasswordEncoder passwordEncoder;
-
-    private final JwtService jwtService;
-
-    private final AuthenticationManager authenticationManager;
-
 
 
 
@@ -54,32 +42,30 @@ public class MemberService {
 
     public AuthenticationResponse saveMember(MemberDto memberDto) {
         Member member = modelMapper.map(memberDto, Member.class);
-        member.setPassword(passwordEncoder.encode(memberDto.getPassword()));
+        member.setPassword(memberDto.getPassword());
         member.setRole(Role.USER);
         memberRepository.save(member);
-        var jwtToken = jwtService.generateToken(member);
         return AuthenticationResponse.builder()
                 .username(memberDto.getUsername())
                 .role(member.getRole())
-                .token(jwtToken)
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
-        Member member = findMember(request.getUsername());
-        var jwtToken = jwtService.generateToken(member);
-        return AuthenticationResponse.builder()
-                .username(request.getUsername())
-                .role(member.getRole())
-                .token(jwtToken)
-                .build();
-    }
+//    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+//        authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        request.getUsername(),
+//                        request.getPassword()
+//                )
+//        );
+//        Member member = findMember(request.getUsername());
+//        var jwtToken = jwtService.generateToken(member);
+//        return AuthenticationResponse.builder()
+//                .username(request.getUsername())
+//                .role(member.getRole())
+//                .token(jwtToken)
+//                .build();
+//    }
 
     public MemberDto convertMemberToDto(Member member) {
         return modelMapper.map(member, MemberDto.class);
