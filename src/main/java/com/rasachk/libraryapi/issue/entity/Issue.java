@@ -19,7 +19,7 @@ public class Issue {
     private LocalDate returnDate;
     @Column(name = "ISSUE_PERIOD")
     private Integer period;
-    @JoinColumn(name = "MEMBER", referencedColumnName = "MEMBER_USERNAME")
+    @JoinColumn(name = "MEMBER", referencedColumnName = "C_MEMBER_USERNAME")
     @OneToOne(cascade = CascadeType.ALL)
     private Member member;
     @JoinColumn(name = "BOOK", referencedColumnName = "BOOK_TITLE")
