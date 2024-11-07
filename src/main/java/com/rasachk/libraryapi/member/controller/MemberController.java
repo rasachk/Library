@@ -39,10 +39,10 @@ public class MemberController {
         return new ResponseEntity<>(memberService.findAllMembers(), HttpStatus.OK);
     }
 
-//    @GetMapping("/{username}")
-//    public ResponseEntity<MemberDto> findOneMember(@PathVariable String username) {
-//        return new ResponseEntity<>(memberService.findMember(username), HttpStatus.OK);
-//    }
+    @GetMapping("/{username}")
+    public ResponseEntity<MemberDto> findOneMember(@PathVariable String username) {
+        return new ResponseEntity<>(memberService.findMember(username), HttpStatus.OK);
+    }
 
 
 }
