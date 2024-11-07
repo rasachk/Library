@@ -13,6 +13,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,6 +34,15 @@ public class MemberServiceImpl implements MemberService {
 
     public MemberDto convertMemberToDto(Member member) {
         return modelMapper.map(member, MemberDto.class);
+    }
+
+    @Override
+    public Member getMemberEntity(String username) {
+        Member member = memberRepository.findMemberByUsernameAndAvailability(username, true);
+        if (Objects.isNull(member)) {
+            throw new ResourceNotFoundException("Member", "username", username);
+        }
+        return member;
     }
 
     public List<MemberDto> findAllMembers() {
@@ -70,17 +80,12 @@ public class MemberServiceImpl implements MemberService {
     private String encryptPassword(String password) {
         try {
 
-            // Static getInstance method is called with hashing MD5
             MessageDigest md = MessageDigest.getInstance("MD5");
 
-            // digest() method is called to calculate message digest
-            // of an input digest() return array of byte
             byte[] messageDigest = md.digest(password.getBytes());
 
-            // Convert byte array into signum representation
             BigInteger no = new BigInteger(1, messageDigest);
 
-            // Convert message digest into hex value
             StringBuilder hashText = new StringBuilder(no.toString(16));
             while (hashText.length() < 32) {
                 hashText.insert(0, "0");
@@ -88,7 +93,6 @@ public class MemberServiceImpl implements MemberService {
             return hashText.toString();
         }
 
-        // For specifying wrong message digest algorithms
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }

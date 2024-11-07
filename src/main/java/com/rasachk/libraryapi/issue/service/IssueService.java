@@ -35,7 +35,7 @@ public class IssueService {
         issue.setReturnDate(issueDto.getReturnDate());
         issue.setPeriod(issueDto.getPeriod());
         issue.setBook(bookService.findBook(issueDto.getBook().getTitle()));
-        issue.setMember(memberService.findMember(issueDto.getMember().getUsername()));
+        issue.setMember(memberService.getMemberEntity(issueDto.getMember().getUsername()));
         return issue;
     }
 

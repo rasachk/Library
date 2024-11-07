@@ -18,4 +18,6 @@ public interface MemberService {
 
     MemberDto convertMemberToDto(Member member);
 
+    Member getMemberEntity(String username);
+
 }
