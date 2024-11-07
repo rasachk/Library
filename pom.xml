@@ -10,11 +10,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.rasa</groupId>
-    <artifactId>LibraryAPI</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>LibraryAPI</name>
-    <description>LibraryAPI</description>
+    <groupId>com.rasachk</groupId>
+    <artifactId>Library-Core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>Library-Core</name>
 
     <properties>
         <java.version>1.8</java.version>
