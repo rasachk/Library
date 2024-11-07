@@ -9,30 +9,33 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "LIB_MEMBERS")
+@Table(name = Member.TABLE_NAME)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
 public class Member {
+
+    public static final String TABLE_NAME = "TBL_MEMBER";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "MEMBER_ID")
+    @Column(name = "C_MEMBER_ID")
     private Long id;
-    @Column(name = "MEMBER_USERNAME")
+    @Column(name = "C_MEMBER_USERNAME")
     private String username;
-    @Column(name = "MEMBER_PASSWORD")
+    @Column(name = "C_MEMBER_PASSWORD")
     private String password;
-    @Column(name = "MEMBER_NAME")
+    @Column(name = "C_MEMBER_NAME")
     private String name;
-    @Column(name = "MEMBER_GENDER")
+    @Column(name = "C_MEMBER_GENDER")
     private String gender;
-    @Column(name = "MEMBER_AGE")
+    @Column(name = "C_MEMBER_AGE")
     private Integer age;
-    @Column(name = "MEMBER_AVAILABILITY")
+    @Column(name = "C_MEMBER_AVAILABILITY")
     private Boolean availability = true;
     @Enumerated(EnumType.STRING)
-    @Column(name = "MEMBER_ROLES")
+    @Column(name = "C_MEMBER_ROLES")
     private Role role;
 
 
