@@ -1,6 +1,5 @@
 package com.rasachk.libraryapi.member.service;
 
-import com.rasachk.libraryapi.authentication.AuthenticationResponse;
 import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
 import com.rasachk.libraryapi.member.dao.MemberRepository;
 import com.rasachk.libraryapi.member.dto.MemberDto;
@@ -23,53 +22,17 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
     private final ModelMapper modelMapper;
 
-/*    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member = findMember(username);
-
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        member.getRoles().forEach(role -> {
-            authorities.add(new SimpleGrantedAuthority(role.toString()));
-        });
-
-        return new User(member.getUsername(), member.getPassword(), authorities);
-        //BUG??
-    }*/
-
-    public AuthenticationResponse saveMember(MemberDto memberDto) {
-        Member member = modelMapper.map(memberDto, Member.class);
-        member.setPassword(memberDto.getPassword());
-        member.setRole(Role.USER);
-        memberRepository.save(member);
-        return AuthenticationResponse.builder()
-                .username(memberDto.getUsername())
-                .role(member.getRole())
-                .build();
+    public MemberDto saveNewMember(MemberDto memberDto) {
+        Member newMember = modelMapper.map(memberDto, Member.class);
+        newMember.setRole(Role.USER);
+        newMember.setPassword(encryptPassword(memberDto.getPassword()));
+        memberRepository.save(newMember);
+        return convertMemberToDto(newMember);
     }
 
-//    public AuthenticationResponse authenticate(AuthenticationRequest request) {
-//        authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        request.getUsername(),
-//                        request.getPassword()
-//                )
-//        );
-//        Member member = findMember(request.getUsername());
-//        var jwtToken = jwtService.generateToken(member);
-//        return AuthenticationResponse.builder()
-//                .username(request.getUsername())
-//                .role(member.getRole())
-//                .token(jwtToken)
-//                .build();
-//    }
 
     public MemberDto convertMemberToDto(Member member) {
         return modelMapper.map(member, MemberDto.class);
-    }
-
-    public Member convertDtoToMember(MemberDto memberDto) {
-        return findMember(memberDto.getUsername());
-        //return modelMapper.map(memberDto,Member.class);
     }
 
     public List<MemberDto> findAllMembers() {
@@ -79,17 +42,17 @@ public class MemberServiceImpl implements MemberService {
                 .collect(Collectors.toList());
     }
 
-    public Member findMember(String username) {
+    public MemberDto findMember(String username) {
         Member member = memberRepository.findMemberByUsernameAndAvailability(username, true);
         if (member == null) {
             throw new ResourceNotFoundException("Member", "username", username);
         }
-        return member;
+        return convertMemberToDto(member);
     }
 
 
     public MemberDto update(MemberDto memberDto) {
-        Member member = convertDtoToMember(memberDto);
+        Member member = memberRepository.findMemberByUsernameAndAvailability(memberDto.getUsername(), true);
         member.setUsername(memberDto.getUsername());
         member.setName(memberDto.getName());
         member.setGender(memberDto.getGender());
@@ -99,12 +62,12 @@ public class MemberServiceImpl implements MemberService {
     }
 
     public void deleteMember(String username) {
-        Member member = findMember(username);
+        Member member = memberRepository.findMemberByUsernameAndAvailability(username, true);
         member.setAvailability(false);
         memberRepository.save(member);
     }
 
-    public String encryptPassword(String password) {
+    private String encryptPassword(String password) {
         try {
 
             // Static getInstance method is called with hashing MD5
@@ -118,11 +81,11 @@ public class MemberServiceImpl implements MemberService {
             BigInteger no = new BigInteger(1, messageDigest);
 
             // Convert message digest into hex value
-            String hashtext = no.toString(16);
-            while (hashtext.length() < 32) {
-                hashtext = "0" + hashtext;
+            StringBuilder hashText = new StringBuilder(no.toString(16));
+            while (hashText.length() < 32) {
+                hashText.insert(0, "0");
             }
-            return hashtext;
+            return hashText.toString();
         }
 
         // For specifying wrong message digest algorithms

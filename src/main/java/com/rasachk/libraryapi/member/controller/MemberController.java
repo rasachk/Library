@@ -1,6 +1,5 @@
 package com.rasachk.libraryapi.member.controller;
 
-import com.rasachk.libraryapi.authentication.AuthenticationResponse;
 import com.rasachk.libraryapi.member.dto.MemberDto;
 import com.rasachk.libraryapi.member.service.MemberService;
 import io.swagger.annotations.Api;
@@ -20,8 +19,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/members/create")
-    public ResponseEntity<AuthenticationResponse> createMember(@RequestBody MemberDto memberDto) {
-        return new ResponseEntity<>(memberService.saveMember(memberDto), HttpStatus.OK);
+    public ResponseEntity<MemberDto> saveNewMember(@RequestBody MemberDto memberDto) {
+        return new ResponseEntity<>(memberService.saveNewMember(memberDto), HttpStatus.OK);
     }
 
     @PostMapping("/update")
