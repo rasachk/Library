@@ -6,13 +6,13 @@ public class MemberDto {
     private String username;
     private String password;
     private String name;
-    private String gender;
+    private GenderEnum gender;
     private Integer age;
 
     public MemberDto() {
     }
 
-    public MemberDto(String username, String password, String name, String gender, Integer age) {
+    public MemberDto(String username, String password, String name, GenderEnum gender, Integer age) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -44,11 +44,11 @@ public class MemberDto {
         this.name = name;
     }
 
-    public String getGender() {
+    public GenderEnum getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(GenderEnum gender) {
         this.gender = gender;
     }
 
@@ -63,6 +63,6 @@ public class MemberDto {
 
     @Override
     public String toString() {
-        return String.format("Member [username=%s, password=%s, name=%s, gender=%s, age=%s]", username, password,name,gender,age);
+        return String.format("Member [username=%s, password=%s, name=%s, gender=%s, age=%s]", username, password, name, gender, age);
     }
 }

@@ -30,8 +30,9 @@ public class Member {
     private String password;
     @Column(name = "C_MEMBER_NAME")
     private String name;
+    @Enumerated(EnumType.STRING)
     @Column(name = "C_MEMBER_GENDER")
-    private String gender;
+    private GenderEnum gender;
     @Column(name = "C_MEMBER_AGE")
     private Integer age;
     @Column(name = "C_MEMBER_AVAILABILITY")
