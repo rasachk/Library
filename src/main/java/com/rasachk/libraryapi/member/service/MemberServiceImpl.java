@@ -25,7 +25,7 @@ public class MemberServiceImpl implements MemberService {
 
     public MemberDto saveNewMember(MemberDto memberDto) {
         Member newMember = modelMapper.map(memberDto, Member.class);
-        newMember.setRole(Role.USER);
+        newMember.setRole(RoleEnum.USER);
         newMember.setPassword(encryptPassword(memberDto.getPassword()));
         memberRepository.save(newMember);
         return convertMemberToDto(newMember);

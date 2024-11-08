@@ -38,7 +38,7 @@ public class Member {
     private Boolean availability = true;
     @Enumerated(EnumType.STRING)
     @Column(name = "C_MEMBER_ROLES")
-    private Role role;
+    private RoleEnum role;
 
 
     @Override
