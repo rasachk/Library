@@ -12,34 +12,34 @@ import java.util.List;
 
 @Api
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/member")
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/members/create")
+    @PostMapping("/saveNewMember")
     public ResponseEntity<MemberDto> saveNewMember(@RequestBody MemberDto memberDto) {
         return new ResponseEntity<>(memberService.saveNewMember(memberDto), HttpStatus.OK);
     }
 
-    @PostMapping("/update")
+    @PostMapping("/updateMember")
     public ResponseEntity<MemberDto> updateMember(@RequestBody MemberDto memberDto) {
         return new ResponseEntity<>(memberService.update(memberDto), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{username}")
+    @DeleteMapping("/deleteMember/{username}")
     public ResponseEntity<Void> deleteMember(@PathVariable("username") String username) {
         memberService.deleteMember(username);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/members/list")
+    @GetMapping("/getAllMembers")
     public ResponseEntity<List<MemberDto>> getAllMembers() {
         return new ResponseEntity<>(memberService.findAllMembers(), HttpStatus.OK);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/findMember/{username}")
     public ResponseEntity<MemberDto> findOneMember(@PathVariable String username) {
         return new ResponseEntity<>(memberService.findMember(username), HttpStatus.OK);
     }
