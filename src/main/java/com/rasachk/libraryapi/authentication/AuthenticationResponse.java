@@ -1,6 +1,6 @@
 package com.rasachk.libraryapi.authentication;
 
-import com.rasachk.libraryapi.member.entity.Role;
+import com.rasachk.libraryapi.member.model.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

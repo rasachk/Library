@@ -1,7 +1,7 @@
 package com.rasachk.libraryapi.issue.dto;
 
 import com.rasachk.libraryapi.book.dto.BookDto;
-import com.rasachk.libraryapi.member.dto.MemberDto;
+import com.rasachk.libraryapi.member.model.dto.MemberDto;
 
 import java.time.LocalDate;
 

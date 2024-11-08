@@ -1,6 +1,6 @@
-package com.rasachk.libraryapi.member.dao;
+package com.rasachk.libraryapi.member.repository;
 
-import com.rasachk.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.member.model.entity.Member;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

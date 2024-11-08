@@ -1,5 +1,7 @@
-package com.rasachk.libraryapi.member.entity;
+package com.rasachk.libraryapi.member.model.entity;
 
+import com.rasachk.libraryapi.member.model.enums.GenderEnum;
+import com.rasachk.libraryapi.member.model.enums.RoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

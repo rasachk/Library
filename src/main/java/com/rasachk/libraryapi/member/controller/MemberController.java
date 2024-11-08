@@ -1,6 +1,6 @@
 package com.rasachk.libraryapi.member.controller;
 
-import com.rasachk.libraryapi.member.dto.MemberDto;
+import com.rasachk.libraryapi.member.model.dto.MemberDto;
 import com.rasachk.libraryapi.member.service.MemberService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;

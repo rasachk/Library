@@ -1,7 +1,7 @@
 package com.rasachk.libraryapi.issue.entity;
 
 import com.rasachk.libraryapi.book.entity.Book;
-import com.rasachk.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.member.model.entity.Member;
 
 import javax.persistence.*;
 import java.time.LocalDate;

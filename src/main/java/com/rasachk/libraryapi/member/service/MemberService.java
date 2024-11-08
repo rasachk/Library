@@ -1,7 +1,7 @@
 package com.rasachk.libraryapi.member.service;
 
-import com.rasachk.libraryapi.member.dto.MemberDto;
-import com.rasachk.libraryapi.member.entity.Member;
+import com.rasachk.libraryapi.member.model.dto.MemberDto;
+import com.rasachk.libraryapi.member.model.entity.Member;
 
 import java.util.List;
 

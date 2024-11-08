@@ -1,4 +1,6 @@
-package com.rasachk.libraryapi.member.dto;
+package com.rasachk.libraryapi.member.model.dto;
+
+import com.rasachk.libraryapi.member.model.enums.GenderEnum;
 
 public class MemberDto {
     private String username;

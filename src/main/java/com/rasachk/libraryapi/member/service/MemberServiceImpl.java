@@ -1,10 +1,10 @@
 package com.rasachk.libraryapi.member.service;
 
 import com.rasachk.libraryapi.exceptions.ResourceNotFoundException;
-import com.rasachk.libraryapi.member.dao.MemberRepository;
-import com.rasachk.libraryapi.member.dto.MemberDto;
-import com.rasachk.libraryapi.member.entity.Member;
-import com.rasachk.libraryapi.member.entity.Role;
+import com.rasachk.libraryapi.member.repository.MemberRepository;
+import com.rasachk.libraryapi.member.model.dto.MemberDto;
+import com.rasachk.libraryapi.member.model.entity.Member;
+import com.rasachk.libraryapi.member.model.enums.RoleEnum;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
